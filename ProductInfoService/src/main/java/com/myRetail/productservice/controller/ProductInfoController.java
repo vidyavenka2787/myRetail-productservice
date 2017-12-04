@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.myRetail.productservice.constants.ErrorConstants;
+import com.myRetail.productservice.entity.PriceAuditEntry;
 import com.myRetail.productservice.exception.ProductServiceException;
 import com.myRetail.productservice.model.ErrorDetails;
 import com.myRetail.productservice.model.ErrorResponse;
@@ -62,6 +63,13 @@ public class ProductInfoController {
 		}
 		String status = productInfoService.updateProductInfo(productInfo);
 		return new ResponseEntity<SuccessResponse>(new SuccessResponse(status), HttpStatus.OK);
+	}
+	
+	@RequestMapping(path="/productprice/audits", method=RequestMethod.GET, produces = "application/json")
+	public ResponseEntity<List<PriceAuditEntry>> getAudits() 
+					throws ProductServiceException{
+		List<PriceAuditEntry> auditEntries = productInfoService.getAuditEntries();
+		return new ResponseEntity<List<PriceAuditEntry>>(auditEntries, HttpStatus.OK);
 	}
 
 	@ExceptionHandler

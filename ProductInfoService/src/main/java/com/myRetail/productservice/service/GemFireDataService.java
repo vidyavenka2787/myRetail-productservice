@@ -3,6 +3,8 @@
  */
 package com.myRetail.productservice.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Component;
 
 import com.myRetail.productservice.entity.PriceAuditEntry;
@@ -23,6 +25,7 @@ public interface GemFireDataService {
 			throws ProductServiceException;
 	public String updateProductPrice(String prdId, PriceInfo priceInfo, PriceAuditEntry priceAuditEntry) 
 			throws ProductServiceException;
+	public List<PriceAuditEntry> getAudit();
 	
 
 }

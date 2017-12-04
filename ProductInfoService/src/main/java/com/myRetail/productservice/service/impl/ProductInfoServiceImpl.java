@@ -5,6 +5,7 @@ package com.myRetail.productservice.service.impl;
 
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -98,6 +99,9 @@ public class ProductInfoServiceImpl implements ProductInfoService {
 		return status;
 	}
 
+	public List<PriceAuditEntry> getAuditEntries() throws ProductServiceException{
+		return gemFireDataService.getAudit();
+	}
 	private ProductInfo constructProductInfoResponse(ProductInfo prdInfoResponse, 
 			ProductDetailsDTO productDetailsResponse, PriceInfo priceInfo){
 

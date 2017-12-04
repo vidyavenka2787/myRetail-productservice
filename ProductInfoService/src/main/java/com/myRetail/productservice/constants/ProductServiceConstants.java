@@ -15,8 +15,5 @@ public class ProductServiceConstants {
 	
 	//GEMFIRE OQL QUERIES
 	public static String PRODUCT_PRICE_PKey = "PRD_PRICE_DATA";
-	public static String PRODUCT_PRICE_QUERY = "SELECT offerPrice FROM /PRODUCTDATAREGION prdRegion "
-			+ "WHERE prdRegion.id='PRD_PRICE_DATA' and partNumber=$1";
-	public static String UPDATE_PRICE_QUERY = "UPDATE offerPrice FROM /PRODUCTDATAREGION prdRegion, prdRegion.price priceEntries, priceEntries.offerPrice offerPrice "
-			+ "WHERE prdRegion.id='PRD_PRICE_DATA' and priceEntries.partNumber=$1";
+    public static String AUDIT_QUERY = "SELECT * FROM /PRODUCTDATAREGION region WHERE region.auditId like '%AUDIT'";
 }

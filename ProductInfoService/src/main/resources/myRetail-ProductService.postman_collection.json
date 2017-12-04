@@ -1,0 +1,94 @@
+{
+	"info": {
+		"name": "myRetail-ProductService",
+		"_postman_id": "f2bdd128-6f9b-ad27-f471-c91bbcb6d8c9",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get product price",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/products/16696652",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"16696652"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Update product price",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"id\": \"16696652\",\r\n\"name\": \"Beats Solo 2 Wireless - Black\",\r\n\"current_price\": {\r\n\"value\": 208.99,\r\n\"currency_code\": \"USD\"\r\n},\r\n\"auditInfo\":{\r\n\t\"updatedBy\":\"admin\",\r\n\t\"updateReason\":\"promotional offer\"\r\n}\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/products/16696652",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"16696652"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Price Audits",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/productprice/audits",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"productprice",
+						"audits"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

@@ -5,10 +5,12 @@ package com.myRetail.productservice.service.impl;
 
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
 import org.apache.geode.cache.GemFireCache;
+import org.apache.geode.cache.query.SelectResults;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.gemfire.GemfireTemplate;
 import org.springframework.http.HttpStatus;
@@ -48,6 +50,13 @@ public class GemFireDataServiceImpl implements GemFireDataService{
 
 		PriceDetails prdPriceDetails = gemfireTemplate.get(productId);
 		return Optional.ofNullable(prdPriceDetails).orElse(new PriceDetails()).getOfferPrice();
+	}
+	
+	@Override
+	public List<PriceAuditEntry> getAudit(){
+
+		SelectResults<PriceAuditEntry> priceAudits = gemfireTemplate.find(ProductServiceConstants.AUDIT_QUERY, new Object[0]);
+		return Optional.ofNullable(priceAudits).get().asList();
 	}
 
 	@Override
